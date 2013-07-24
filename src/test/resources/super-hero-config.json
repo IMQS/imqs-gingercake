@@ -1,0 +1,50 @@
+{
+    "Description":"Configuration Properties or other Configuration Objects goes Here",
+
+    "Properties":{
+
+        "logFile":"logback.groovy",
+
+        "propertiesFile":{
+            "doc":"Properties File that holds Spring Context properties",
+            "$":"/configuration.properties"
+        },
+
+        "Jetty":{
+
+            "logPath":{
+                "doc":"The FilePath to the jetty log",
+                "$":"target/var/logs/jetty-access/yyyy_mm_dd.request.log"
+            } ,
+            "resourcePath":{
+                "doc":"Resource Path is necessary when using Servlets 3.0 no xml configuration",
+                "$":"/src/test/resources/webapp/WEB-INF/"
+            },
+            "home":"resper-service/src/test/resources/jetty-home",
+
+            "ThreadPool":{
+                "minimum":"10",
+                "maximum": "100"
+            },
+
+            "HTTP":{
+                "timeOut":"600000",
+                "port":"8004",
+                "securePort":"8443",
+                "outputBufferSize": "32700",
+                "requestHeaderSize":"8192",
+                "responseHeaderSize": "8192",
+                "sendServerVersion":"true",
+                "sendDateHeader": "false"
+            },
+
+            "SSL":{
+                "timeOut":"500000",
+                "port":"8003",
+                "keyStorePath":"file:**/src/test/resources/jetty-home/etc/test.keystore",
+                "keyStorePassword":"jetty1"
+            }
+        }
+    }
+
+}
