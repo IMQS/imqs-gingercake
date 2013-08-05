@@ -1,12 +1,19 @@
-package za.co.imqs.spring;
+package za.co.imqs.web;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import za.co.imqs.spring.RepositoryRestMvcExtConfiguration;
+import za.co.imqs.spring.SecurityConfiguration;
+import za.co.imqs.spring.ServiceConfiguration;
+import za.co.imqs.spring.WebMvcConfiguration;
 
+import javax.servlet.Filter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+/**
+ * This Java class replaces the web.xml
+ */
 
 @Slf4j  //Will create SLF4J logger called log
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
@@ -17,7 +24,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
  */
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] { };
+        return new Class<?>[] { ServiceConfiguration.class};
     }
 
     /*
@@ -26,8 +33,8 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
      */
     @Override
     protected Class<?>[]  getServletConfigClasses() {
-        WebAppInitializer.log.info("WebMVC Configuration {}", WebConfig.class.getName() );
-        return new Class<?>[] { WebConfig.class};
+        WebAppInitializer.log.info("WebMVC Configuration {}", WebMvcConfiguration.class.getName() );
+        return new Class<?>[] { RepositoryRestMvcExtConfiguration.class, WebMvcConfiguration.class, SecurityConfiguration.class};
     }
 
     /*
@@ -45,9 +52,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
      */
     @Override
     protected javax.servlet.Filter[] getServletFilters() {
-        DelegatingFilterProxy proxy = new DelegatingFilterProxy("springSecurityFilterChain");
-        proxy.setContextAttribute("");
-        return new javax.servlet.Filter[] { };
+        return new Filter[] {};
     }
 
 

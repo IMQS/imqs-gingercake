@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import za.co.imqs.spring.WebConfig;
+import za.co.imqs.spring.WebMvcConfiguration;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,7 +16,7 @@ import za.co.imqs.spring.WebConfig;
  * To change this template use File | Settings | File Templates.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { WebConfig.class})
+@ContextConfiguration(classes = { WebMvcConfiguration.class})
 @WebAppConfiguration
 public class SpringContextTest {
 

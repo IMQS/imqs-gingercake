@@ -20,10 +20,10 @@ appender("FILE", RollingFileAppender) {
 
 appender("CONSOLE", ConsoleAppender) {
     encoder(PatternLayoutEncoder) {
-        pattern = "%-5level %d{HH:mm:ss.SSS} [%thread]  %logger{56} - %msg%n"
+        pattern = "%-5level %d{HH:mm:ss.SSS} [%thread]  %logger{80} - %msg%n"
     }
 }
-logger("org.springframework", INFO)
+logger("org.springframework", DEBUG)
 
 logger("org.apache.commons", INFO)
 logger("org.eclipse", INFO)
@@ -32,6 +32,7 @@ logger("net.sf.jasperreports.engine.fill", INFO)
 
 logger("org.springframework.util", DEBUG)
 logger("org.springframework.web", DEBUG)
+logger("org.springframework.security", DEBUG)
 logger("za.co.imqs", DEBUG)
 
 logger("za.co.imqs.report", TRACE)

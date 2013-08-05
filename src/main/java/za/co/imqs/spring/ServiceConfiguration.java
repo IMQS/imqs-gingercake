@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * To change this template use File | Settings | File Templates.
  */
 @Configuration
-public class AppConfig {
+public class ServiceConfiguration {
 
 
     /**

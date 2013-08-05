@@ -1,4 +1,4 @@
-package za.co.imqs.spring;
+package za.co.imqs.validation;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

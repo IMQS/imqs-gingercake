@@ -3,6 +3,7 @@ package za.co.imqs.spring;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.repository.context.ValidatingRepositoryEventListener;
 import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
+import za.co.imqs.validation.NotNullValidator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +13,7 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguratio
  * Creates a REST controller for the Repositories
  */
 @Configuration
-public class RestConfig extends RepositoryRestMvcConfiguration {
+public class RepositoryRestMvcExtConfiguration extends RepositoryRestMvcConfiguration {
 
 //    @Override protected void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 //        config.addResourceMappingForDomainType(SecretIdentity.class)
@@ -22,7 +23,9 @@ public class RestConfig extends RepositoryRestMvcConfiguration {
 //                .addResourceMappingFor("hero");
 //    }
 
-    @Override protected void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener listener) {
+    @Override
+    protected void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener listener) {
         listener.addValidator("beforeSave", new NotNullValidator());
     }
+
 }
