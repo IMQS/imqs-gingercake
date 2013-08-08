@@ -44,6 +44,11 @@
                 "keyStorePath":"file:**/src/test/resources/jetty-home/etc/test.keystore",
                 "keyStorePassword":"jetty1"
             }
+        },
+
+        "Authentication":{
+            "url":"http://127.0.0.1:8007/auth"
+
         }
     }
 

@@ -19,6 +19,10 @@
         It also demonstrate our current technology framework for Java REST Based WebServices
     </description>
 
+    <properties>
+        <springframework.integration>2.2.4.RELEASE</springframework.integration>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -61,6 +65,41 @@
                     <artifactId>spring-data-commons-core</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <!-- Spring integration -->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-core</artifactId>
+            <version>${springframework.integration}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-beans</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-core</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-aop</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-aop</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-http</artifactId>
+            <version>${springframework.integration}</version>
         </dependency>
 
         <!-- logging -->

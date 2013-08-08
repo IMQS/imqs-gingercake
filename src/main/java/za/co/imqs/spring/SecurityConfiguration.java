@@ -42,7 +42,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeUrls()
-//                .antMatchers("/").permitAll() // all can see the API
                 .antMatchers("/secret/**").hasRole("USER")
                 .antMatchers("/hero/**").hasRole("ADMIN") // #6
                 .anyRequest().authenticated() // 7

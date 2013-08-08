@@ -2,6 +2,7 @@ package za.co.imqs.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import za.co.imqs.spring.IntegrationConfiguration;
 import za.co.imqs.spring.RepositoryRestMvcExtConfiguration;
 import za.co.imqs.spring.SecurityConfiguration;
 import za.co.imqs.spring.ServiceConfiguration;
@@ -16,7 +17,7 @@ import javax.servlet.ServletException;
  */
 
 @Slf4j  //Will create SLF4J logger called log
-public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
+public class RestApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
 {
     /*
  * (non-Javadoc)
@@ -24,7 +25,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
  */
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] { ServiceConfiguration.class};
+        return new Class<?>[] { ServiceConfiguration.class, IntegrationConfiguration.class};
     }
 
     /*
@@ -33,7 +34,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
      */
     @Override
     protected Class<?>[]  getServletConfigClasses() {
-        WebAppInitializer.log.info("WebMVC Configuration {}", WebMvcConfiguration.class.getName() );
+        RestApplicationInitializer.log.info("WebMVC Configuration {}", WebMvcConfiguration.class.getName() );
         return new Class<?>[] { RepositoryRestMvcExtConfiguration.class, WebMvcConfiguration.class, SecurityConfiguration.class};
     }
 
@@ -60,7 +61,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	public void onStartup(ServletContext servletContext) throws ServletException
 	{
         super.onStartup(servletContext);
-        WebAppInitializer.log.info("Web Application Started");
+        RestApplicationInitializer.log.info("Web Application Started");
 	}
 
 

@@ -18,7 +18,7 @@ import java.net.MalformedURLException;
 @Slf4j
 public class INeedAHeroAppTest {
 
-    private Boolean RUN_FOR_EVER = true;
+    private Boolean RUN_FOR_EVER = false;
 
     @Before
     public void setup() throws FileNotFoundException, MalformedURLException {

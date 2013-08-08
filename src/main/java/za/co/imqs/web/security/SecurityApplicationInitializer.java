@@ -1,4 +1,4 @@
-package za.co.imqs.security;
+package za.co.imqs.web.security;
 
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
@@ -14,11 +14,11 @@ import javax.servlet.ServletContext;
  * Time: 3:45 PM
  */
 /**
- * In conjunction with {@link za.co.imqs.web.WebAppInitializer}, this configuration class sets up Spring Security and Spring
+ * In conjunction with {@link za.co.imqs.web.RestApplicationInitializer}, this configuration class sets up Spring Security and Spring
  * Security OAuth.
  *
  * @author Rob Winch
- * @see za.co.imqs.web.WebAppInitializer
+ * @see za.co.imqs.web.RestApplicationInitializer
  */
 public class SecurityApplicationInitializer extends AbstractSecurityWebApplicationInitializer {
 
